@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>X_O</title>
+</head>
+<body>
+<p>{{message}}</p>
+<table border="1">
+    {% for i in range(3) %}
+    <tr>
+        {% for j in range(3) %}
+        <td onclick="document.getElementById('f{{i}}{{j}}').submit()" style="width:50px; font-size:20pt; text-align:center; height:50px">
+            <form id="f{{i}}{{j}}" method="post">
+                <input type="hidden" name="x" value="{{i}}">
+                <input type="hidden" name="y" value="{{j}}">
+            </form>
+            {% if field[i, j] == 'X' %}X{% endif %}
+            {% if field[i, j] == 'O' %}O{% endif %}
+            &nbsp;
+        </td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
